@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, Suspense, useMemo } from "react";
+import { useRef, useState, Suspense } from "react";
 import { Canvas, useFrame, ThreeEvent } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { motion } from "framer-motion";

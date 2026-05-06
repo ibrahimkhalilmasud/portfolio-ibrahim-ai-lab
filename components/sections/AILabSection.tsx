@@ -2,7 +2,7 @@
 
 import { useRef, useState, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Sphere, Box, Line, Text, OrbitControls } from "@react-three/drei";
+import { Line, OrbitControls } from "@react-three/drei";
 import { motion, AnimatePresence } from "framer-motion";
 import * as THREE from "three";
 

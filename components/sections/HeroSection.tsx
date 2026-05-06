@@ -21,11 +21,6 @@ export default function HeroSection() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
   const [roleIndex, setRoleIndex] = useState(0);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   // Cycle roles
   useEffect(() => {
@@ -175,153 +170,141 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         {/* Role tag */}
-        {mounted && (
-          <motion.div
-            key={roleIndex}
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full text-xs font-mono tracking-widest"
-            style={{
-              border: "1px solid rgba(0,212,255,0.3)",
-              background: "rgba(0,212,255,0.05)",
-              color: "#00d4ff",
-            }}
-          >
-            <span
-              className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] animate-pulse"
-            />
-            {roles[roleIndex]}
-          </motion.div>
-        )}
+        <motion.div
+          key={roleIndex}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4 }}
+          className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full text-xs font-mono tracking-widest"
+          style={{
+            border: "1px solid rgba(0,212,255,0.3)",
+            background: "rgba(0,212,255,0.05)",
+            color: "#00d4ff",
+          }}
+        >
+          <span
+            className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] animate-pulse"
+          />
+          {roles[roleIndex]}
+        </motion.div>
 
         {/* Name */}
-        {mounted && (
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-none">
-            {nameLetters.map((letter, i) => (
-              <motion.span
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.03, duration: 0.4, ease: "easeOut" }}
-                style={{
-                  display: letter === " " ? "inline" : "inline-block",
-                  background:
-                    i < 8
-                      ? "linear-gradient(135deg, #ffffff, #aaaaaa)"
-                      : "linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                {letter === " " ? "\u00A0" : letter}
-              </motion.span>
-            ))}
-          </h1>
-        )}
+        <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-none">
+          {nameLetters.map((letter, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.03, duration: 0.4, ease: "easeOut" }}
+              style={{
+                display: letter === " " ? "inline" : "inline-block",
+                background:
+                  i < 8
+                    ? "linear-gradient(135deg, #ffffff, #aaaaaa)"
+                    : "linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              {letter === " " ? "\u00A0" : letter}
+            </motion.span>
+          ))}
+        </h1>
 
         {/* Subtitle */}
-        {mounted && (
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-            className="text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
-            style={{ color: "#888" }}
-          >
-            Building AI systems for{" "}
-            <span style={{ color: "#00d4ff" }}>fashion</span>,{" "}
-            <span style={{ color: "#a855f7" }}>automation</span>, and intelligent
-            digital experiences.
-          </motion.p>
-        )}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+          className="text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
+          style={{ color: "#888" }}
+        >
+          Building AI systems for{" "}
+          <span style={{ color: "#00d4ff" }}>fashion</span>,{" "}
+          <span style={{ color: "#a855f7" }}>automation</span>, and intelligent
+          digital experiences.
+        </motion.p>
 
         {/* CTA buttons */}
-        {mounted && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.6 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+        >
+          <a
+            href="#lab"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("lab")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="px-8 py-3.5 rounded font-semibold text-sm tracking-wider transition-all duration-300 hover:scale-105"
+            style={{
+              background: "linear-gradient(135deg, #00d4ff, #0070f3)",
+              color: "#000",
+              boxShadow: "0 0 20px rgba(0,212,255,0.4)",
+            }}
           >
-            <a
-              href="#lab"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById("lab")?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="px-8 py-3.5 rounded font-semibold text-sm tracking-wider transition-all duration-300 hover:scale-105"
-              style={{
-                background: "linear-gradient(135deg, #00d4ff, #0070f3)",
-                color: "#000",
-                boxShadow: "0 0 20px rgba(0,212,255,0.4)",
-              }}
-            >
-              Explore AI Lab
-            </a>
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="px-8 py-3.5 rounded font-semibold text-sm tracking-wider transition-all duration-300 hover:scale-105"
-              style={{
-                border: "1px solid rgba(0,212,255,0.4)",
-                color: "#00d4ff",
-                background: "rgba(0,212,255,0.05)",
-              }}
-            >
-              Get in Touch
-            </a>
-          </motion.div>
-        )}
+            Explore AI Lab
+          </a>
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="px-8 py-3.5 rounded font-semibold text-sm tracking-wider transition-all duration-300 hover:scale-105"
+            style={{
+              border: "1px solid rgba(0,212,255,0.4)",
+              color: "#00d4ff",
+              background: "rgba(0,212,255,0.05)",
+            }}
+          >
+            Get in Touch
+          </a>
+        </motion.div>
 
         {/* Stats bar */}
-        {mounted && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2, duration: 0.6 }}
-            className="flex flex-wrap justify-center gap-8 sm:gap-12"
-          >
-            {stats.map((stat, i) => (
-              <div key={i} className="text-center">
-                <div
-                  className="text-2xl sm:text-3xl font-bold"
-                  style={{ color: "#00d4ff" }}
-                >
-                  {stat.value}
-                </div>
-                <div className="text-xs tracking-widest mt-1" style={{ color: "#555" }}>
-                  {stat.label}
-                </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2, duration: 0.6 }}
+          className="flex flex-wrap justify-center gap-8 sm:gap-12"
+        >
+          {stats.map((stat, i) => (
+            <div key={i} className="text-center">
+              <div
+                className="text-2xl sm:text-3xl font-bold"
+                style={{ color: "#00d4ff" }}
+              >
+                {stat.value}
               </div>
-            ))}
-          </motion.div>
-        )}
+              <div className="text-xs tracking-widest mt-1" style={{ color: "#555" }}>
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </motion.div>
       </div>
 
       {/* Scroll indicator */}
-      {mounted && (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        style={{ color: "#444" }}
+      >
+        <span className="text-xs tracking-widest font-mono">SCROLL</span>
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-          style={{ color: "#444" }}
-        >
-          <span className="text-xs tracking-widest font-mono">SCROLL</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-px h-8"
-            style={{ background: "linear-gradient(180deg, #00d4ff, transparent)" }}
-          />
-        </motion.div>
-      )}
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="w-px h-8"
+          style={{ background: "linear-gradient(180deg, #00d4ff, transparent)" }}
+        />
+      </motion.div>
 
       {/* Bottom gradient */}
       <div

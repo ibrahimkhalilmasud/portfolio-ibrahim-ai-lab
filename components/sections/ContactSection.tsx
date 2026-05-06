@@ -40,6 +40,14 @@ interface FormData {
   message: string;
 }
 
+// Pre-computed particle data to avoid Math.random() calls during render
+const PARTICLES = Array.from({ length: 20 }, (_, i) => ({
+  background: i % 3 === 0 ? "#00d4ff" : i % 3 === 1 ? "#7c3aed" : "#ffffff",
+  left: `${(i * 5.13 + 2.7) % 100}%`,
+  animationDelay: `${(i * 0.43) % 8}s`,
+  animationDuration: `${6 + (i * 0.79) % 8}s`,
+}));
+
 export default function ContactSection() {
   const [form, setForm] = useState<FormData>({ name: "", email: "", message: "" });
   const [sending, setSending] = useState(false);
@@ -73,17 +81,15 @@ export default function ContactSection() {
     >
       {/* Floating CSS particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {Array.from({ length: 20 }, (_, i) => (
+        {PARTICLES.map((particle, i) => (
           <div
             key={i}
             className="absolute w-1 h-1 rounded-full"
             style={{
-              background: i % 3 === 0 ? "#00d4ff" : i % 3 === 1 ? "#7c3aed" : "#ffffff",
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 8}s`,
-              animationDuration: `${6 + Math.random() * 8}s`,
+              background: particle.background,
+              left: particle.left,
               opacity: 0.3,
-              animation: `float-particle ${6 + Math.random() * 8}s ${Math.random() * 8}s infinite linear`,
+              animation: `float-particle ${particle.animationDuration} ${particle.animationDelay} infinite linear`,
             }}
           />
         ))}

@@ -10,7 +10,6 @@ interface LoadingScreenProps {
 export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   const [progress, setProgress] = useState(0);
   const [visible, setVisible] = useState(true);
-  const [phase, setPhase] = useState(0);
 
   const phases = [
     "INITIALIZING AI SYSTEMS...",
@@ -18,6 +17,8 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
     "CALIBRATING VISION MODULES...",
     "SYSTEM READY",
   ];
+
+  const phase = progress < 30 ? 0 : progress < 60 ? 1 : progress < 85 ? 2 : 3;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -36,13 +37,6 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
 
     return () => clearInterval(interval);
   }, [onComplete]);
-
-  useEffect(() => {
-    if (progress < 30) setPhase(0);
-    else if (progress < 60) setPhase(1);
-    else if (progress < 85) setPhase(2);
-    else setPhase(3);
-  }, [progress]);
 
   return (
     <AnimatePresence>

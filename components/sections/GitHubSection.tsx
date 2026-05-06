@@ -48,7 +48,7 @@ const featuredRepos = [
 ];
 
 // Simple contribution heatmap - static visual data
-const heatmapData = Array.from({ length: 52 * 7 }, (_, i) => {
+const heatmapData = Array.from({ length: 52 * 7 }, () => {
   const rand = Math.random();
   if (rand > 0.7) return 3;
   if (rand > 0.5) return 2;

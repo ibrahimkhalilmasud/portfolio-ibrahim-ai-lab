@@ -11,7 +11,7 @@
 
 **A futuristic 3D AI portfolio** showcasing computer vision, virtual try-on systems, AI automation, and intelligent digital experiences.
 
-[🌐 Live Demo](#) · [🐛 Report Bug](https://github.com/ibrahimkhalilmasud/portfolio-ibrahim-ai-lab/issues) · [✨ Request Feature](https://github.com/ibrahimkhalilmasud/portfolio-ibrahim-ai-lab/issues)
+[🌐 Live Demo](https://ibrahimkhalilmasud.github.io/portfolio-ibrahim-ai-lab/) · [🐛 Report Bug](https://github.com/ibrahimkhalilmasud/portfolio-ibrahim-ai-lab/issues) · [✨ Request Feature](https://github.com/ibrahimkhalilmasud/portfolio-ibrahim-ai-lab/issues)
 
 </div>
 

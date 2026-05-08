@@ -1,0 +1,5 @@
+- Temporal Try-On Consistency | Active | Evaluating frame-consistent diffusion controls for short runway clips.
+- Textile Embedding Benchmark v2 | Running | Comparing weakly supervised labels against curated swatch metadata.
+- Body Segmentation Reliability | Active | Stress-testing pose + mask pipelines on low-light mobile captures.
+- Inference Cost Compression | Tracking | Profiling quantization and batching strategies for production deployment.
+- Fashion RAG Corpus | Building | Structuring garment language + technical spec data for style reasoning.

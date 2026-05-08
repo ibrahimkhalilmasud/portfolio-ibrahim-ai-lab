@@ -1,0 +1,4 @@
+- Diffusion-Guided Garment Transfer for Mobile Try-On | Experiment Note | Tested robust texture preservation under constrained latency budgets. | https://github.com/ibrahimkhalilmasud
+- Fabric Latent Spaces for Visual Similarity Search | Research Brief | Demonstrated improved textile retrieval quality with multimodal contrastive training. | https://github.com/ibrahimkhalilmasud
+- Practical Observability for Fashion AI Inference | Engineering Note | Defined production SLOs and traceability patterns for multimodel deployment stacks. | https://github.com/ibrahimkhalilmasud
+- Dataset Shift Diagnostics in Body Segmentation Pipelines | Lab Notebook | Measured segmentation failure patterns across skin tones, poses, and lighting ranges. | https://github.com/ibrahimkhalilmasud

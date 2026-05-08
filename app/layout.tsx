@@ -1,32 +1,44 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Muhammad Ibrahim Khalil | AI Engineer & Computer Vision Developer",
+  metadataBase: new URL("https://ibrahim-ai-lab.vercel.app"),
+  title: "Ibrahim Khalil Masud | AI Systems Architect for Fashion Intelligence",
   description:
-    "AI Engineer specializing in Computer Vision, Fashion AI, and intelligent digital experiences. Building the future with PyTorch, OpenCV, and cutting-edge AI systems.",
+    "Applied computer vision researcher and technical founder building production AI infrastructure for virtual try-on, fabric intelligence, and multimodal fashion systems.",
   keywords: [
-    "AI Engineer",
-    "Computer Vision",
-    "Fashion AI",
-    "Machine Learning",
-    "Muhammad Ibrahim Khalil",
-    "PyTorch",
-    "Deep Learning",
+    "AI systems architect",
+    "computer vision researcher",
+    "fashion AI",
+    "multimodal AI engineer",
+    "technical founder",
+    "virtual try-on",
+    "fabric intelligence",
   ],
-  authors: [{ name: "Muhammad Ibrahim Khalil" }],
+  authors: [{ name: "Ibrahim Khalil Masud" }],
   openGraph: {
-    title: "Muhammad Ibrahim Khalil | AI Engineer & Computer Vision Developer",
+    title: "Ibrahim Khalil Masud | AI Research + Fashion Intelligence Systems",
     description:
-      "Building AI systems for fashion, automation, and intelligent digital experiences.",
+      "Premium AI lab portfolio focused on production-ready computer vision and multimodal fashion infrastructure.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Muhammad Ibrahim Khalil | AI Engineer",
-    description: "Building AI systems for fashion, automation, and intelligent digital experiences.",
+    title: "Ibrahim Khalil Masud | AI Systems Architect",
+    description: "Applied computer vision and multimodal AI for fashion intelligence systems.",
   },
+  alternates: {
+    canonical: "/",
+  },
+  manifest: "/manifest.webmanifest",
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#070709" },
+    { media: "(prefers-color-scheme: light)", color: "#f2f3f5" },
+  ],
 };
 
 export default function RootLayout({
@@ -36,15 +48,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="min-h-full bg-black text-white antialiased">{children}</body>
+      <body className="min-h-full antialiased">{children}</body>
     </html>
   );
 }

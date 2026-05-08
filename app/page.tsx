@@ -1,11 +1,7 @@
-import dynamic from "next/dynamic";
 import MotionReveal from "@/components/portfolio/MotionReveal";
+import HeroVisual from "@/components/portfolio/HeroVisual";
 import ServiceWorkerRegistration from "@/components/portfolio/ServiceWorkerRegistration";
 import { getPortfolioData } from "@/lib/portfolio-content";
-
-const AnimatedFabricMesh = dynamic(() => import("@/components/portfolio/AnimatedFabricMesh"), {
-  ssr: false,
-});
 
 const navItems = [
   { href: "#hero", label: "Hero" },
@@ -67,7 +63,7 @@ export default async function Home() {
 
       <section id="hero" className="hero-shell">
         <div className="hero-background-layer" aria-hidden="true" />
-        <AnimatedFabricMesh />
+        <HeroVisual />
         <div className="hero-content">
           <MotionReveal>
             <p className="eyebrow">Applied AI Systems • Computer Vision • Fashion Intelligence</p>
